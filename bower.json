@@ -12,6 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "core-elements": "Polymer/core-elements#~0.5.5"
+    "core-elements": "Polymer/core-elements#~0.5.5",
+    "page.js": "~1.6.3"
   }
 }
