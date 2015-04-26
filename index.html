@@ -20,18 +20,18 @@
 
                 <core-header-panel drawer>
                     <core-toolbar>Menu</core-toolbar>
-                    <core-menu>
+                    <core-menu on-core-select="{{menuItemSelected}}">
 
                       <core-item route="home" label="Home">
-                        <a href="{{urlFor('home')}}" core-drawer-toggle></a>
+                        <a href="{{urlFor('home')}}"></a>
                       </core-item>
 
                       <core-item route="portfolio" label="Portfolio">
-                        <a href="{{urlFor('portfolio')}}" core-drawer-toggle></a>
+                        <a href="{{urlFor('portfolio')}}"></a>
                       </core-item>
 
                       <core-item route="contact" label="Contact">
-                        <a href="{{urlFor('contact')}}" core-drawer-toggle></a>
+                        <a href="{{urlFor('contact')}}"></a>
                       </core-item>
 
                     </core-menu>
@@ -46,7 +46,7 @@
 
                     <main>
 
-                      <more-route-selector>
+                      <more-route-selector selectedParams="{{params}}">
 
                           <core-pages selected="{{route}}">
                             <section route="home">
@@ -55,8 +55,20 @@
                             </section>
                             <section route="portfolio">
                               <h1>Portfolio</h1>
-                              <div>Portfolio Content</div>
+                              <div>
+                                <p>Portfolio Content</p>
+                                <p> <a href="{{urlFor('user-info', {name: 'Renato'})}}">Renato's</a></p>
+                                <p> <a href="{{urlFor('user-info', {name: 'John Doe'})}}">John Doe's</a></p>
+                              </div>
                             </section>
+
+                            <section route="user-info">
+                              <h1>Portfolio of</h1>
+                              <div>
+                                <p>This is {{params.name}}'s portfolio.</p>
+                              </div>
+                            </section>
+
                             <section route="contact">
                               <h1>Contact</h1>
                               <div>Contact Content</div>
@@ -67,9 +79,6 @@
 
                     </main>
 
-<!--                     <div class="container" fit layout vertical>
-
-                    </div> -->
                 </core-header-panel>
             </core-drawer-panel>
 

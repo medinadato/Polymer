@@ -1,6 +1,12 @@
 document.addEventListener('polymer-ready', function() {
-	var tmpl = document.querySelector('#app');
-	tmpl.heading = 'My Cool App';
+	var app = document.querySelector('#app');
+	app.heading = 'My Cool App';
 
-	tmpl.selected = 0;
+	app.selected = 0;
+
+	app.menuItemSelected = function(e, detail, sender) {
+	  if (detail.isSelected) {
+	    document.querySelector('#drawerPanel').closeDrawer();
+	  }
+	};	
 })
