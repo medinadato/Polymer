@@ -10,3 +10,10 @@ body {
 
 #home p {text-align: center;}
 #home img { border-radius: 50%; width: 50%; }
+#home ul li { list-style: none; }
+
+form fieldset { border: none; }
+form fieldset legend { line-height: 35px; }
+form label { display: block; margin-bottom: 10px; }
+form label input, form label textarea { width: 90%; border-radius: 5px; border: 1px solid #ccc; line-height: 25px; }
+

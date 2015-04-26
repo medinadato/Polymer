@@ -49,15 +49,29 @@
                       <more-route-selector selectedParams="{{params}}">
 
                           <core-pages selected="{{route}}">
+
+                            <!-- HOME PAGE -->
                             <section route="home" id="home">
                               <h1>Home</h1>
                               <div>
                                 <p>First WebApp Developed by Renato Medina</p>
                                 <p>
-                                  <img src="http://blog.mdnsolutions.com/wp-content/uploads/2014/09/me_professional_small.jpg"">
+                                  <img src="http://blog.mdnsolutions.com/wp-content/uploads/2014/09/me_professional_small.jpg">
                                 </p>
+                                <ul>
+                                  <li>
+                                    <core-icon icon="link"></core-icon>
+                                    <a href="https://twitter.com/medinadato" target="_blank">On Twitter</a>
+                                  </li>
+                                  <li>
+                                    <core-icon icon="link"></core-icon>
+                                    <a href="http://stackoverflow.com/users/780071/medina" target="_blank">On Stack Overflow</a>
+                                </li>
+                                </ul>
                               </div>
                             </section>
+
+                            <!-- PORTFOLIO PAGE -->
                             <section route="portfolio">
                               <h1>Portfolio</h1>
                               <div>
@@ -67,16 +81,41 @@
                               </div>
                             </section>
 
+                            <!-- Sub-PORTFOLIO PAGE -->
                             <section route="user-info">
-                              <h1>Portfolio of</h1>
+                              <h1>My Portfolio</h1>
                               <div>
                                 <p>This is {{params.name}}'s portfolio.</p>
+                                <p>
+                                  <core-item label="Back">
+                                    <a href="{{urlFor('portfolio')}}"></a>
+                                  </core-item>
+                                </p>
                               </div>
                             </section>
 
+                            <!-- CONTACT PAGE -->
                             <section route="contact">
                               <h1>Contact</h1>
-                              <div>Contact Content</div>
+                              <div>
+                                  <form action="#" method="post">
+                                    <fieldset>
+                                      <legend>Leave us a message</legend>
+                                      <label>
+                                        Name: <input id="input" type="text" flex="" auto="" placeholder="Your Name" autocapitalize="off" autocorrect="off" on-change="{{ commit }}">
+                                      </label>
+                                      <label>
+                                        E-mail: <input type="text" name="email" placeholder="Your Email" />
+                                      </label>
+                                      <label>
+                                        Message: <textarea name="message"></textarea>
+                                      </label>
+                                      <label>
+                                        <button type="submit">Submit</button>
+                                      </label>
+                                    </fieldset>
+                                  </form>
+                              </div>
                             </section>
                           </core-pages>
 
