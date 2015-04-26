@@ -7,3 +7,6 @@ body {
 [drawer] {
 	background-color: #FFFFFF;
 }
+
+#home p {text-align: center;}
+#home img { border-radius: 50%; width: 50%; }
