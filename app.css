@@ -8,12 +8,44 @@ body {
 	background-color: #FFFFFF;
 }
 
+div.core-list {
+	display: block;
+	overflow: auto;
+	min-height: 500px;
+	border-top: 1px solid;
+	border-bottom: 1px solid; 
+}
+
+core-list {
+	height:100%;
+}
+
+core-list .row {
+	height: 80px;
+	padding: 16px;
+}
+
+core-list .avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 16px;
+	background-color: #00BCD4;
+}
+
 #home p {text-align: center;}
-#home img { border-radius: 50%; width: 50%; }
 #home ul li { list-style: none; }
+
+img#photo-renato { border-radius: 50%; width: 30%; }
 
 form fieldset { border: none; }
 form fieldset legend { line-height: 35px; }
 form label { display: block; margin-bottom: 10px; }
 form label input, form label textarea { width: 90%; border-radius: 5px; border: 1px solid #ccc; line-height: 25px; }
 
+ul.credits { 
+	position: fixed;
+	bottom: 0;
+	background-color: #9bbad1;
+	width: 100%;
+}

@@ -7,12 +7,12 @@
         <meta name="mobile-web-app-capable" content="yes">
         <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
         
-        <link rel="import" href="elements.html">
-        <link rel="import" href="routes.html">
+        <link rel="import" href="inc/elements.html">
+        <link rel="import" href="inc/routes.html">
 
         <link rel="stylesheet" type="text/css" href="app.css">
     </head>
-    <body fullbleed layout vertical unresolved>
+    <body fullbleed fit layout vertical>
 
         <template is="auto-binding" id="app">
 
@@ -52,13 +52,18 @@
 
                             <!-- HOME PAGE -->
                             <section route="home" id="home">
-                              <h1>Home</h1>
-                              <div>
-                                <p>First WebApp Developed by Renato Medina</p>
-                                <p>
-                                  <img src="http://blog.mdnsolutions.com/wp-content/uploads/2014/09/me_professional_small.jpg">
-                                </p>
-                                <ul>
+                                <div fit class="core-list">
+                                  <core-list data="{{data}}" flex>
+                                    <template>
+                                      <div class="row" layout horizontal center>
+                                        <core-image class="avatar" src="{{model.avatar}}" preload sizing="cover" data-index="{{index}}"></core-image>
+                                        <div data-index="{{index}}">{{model.name}}</div>
+                                      </div>
+                                    </template>
+                                  </core-list>
+                                </div>
+
+                                <ul class="credits">
                                   <li>
                                     <core-icon icon="link"></core-icon>
                                     <a href="https://twitter.com/medinadato" target="_blank">On Twitter</a>
@@ -67,6 +72,7 @@
                                     <core-icon icon="link"></core-icon>
                                     <a href="http://stackoverflow.com/users/780071/medina" target="_blank">On Stack Overflow</a>
                                 </li>
+
                                 </ul>
                               </div>
                             </section>
@@ -76,7 +82,11 @@
                               <h1>Portfolio</h1>
                               <div>
                                 <p>Portfolio Content</p>
-                                <p> <a href="{{urlFor('user-info', {name: 'Renato'})}}">Renato's</a></p>
+                                <p> 
+                                  <img id="photo-renato" src="http://blog.mdnsolutions.com/wp-content/uploads/2014/09/me_professional_small.jpg">
+                                  <a href="{{urlFor('user-info', {name: 'Renato'})}}">Renato's</a>
+                                </p>
+                                <hr />
                                 <p> <a href="{{urlFor('user-info', {name: 'John Doe'})}}">John Doe's</a></p>
                               </div>
                             </section>
@@ -127,6 +137,7 @@
             </core-drawer-panel>
 
         </template>
+        <script type="text/javascript" src="bower_components/Faker/build/build/faker.js"></script>
         <script type="text/javascript" src="app.js"></script>
     </body>
 </html> 

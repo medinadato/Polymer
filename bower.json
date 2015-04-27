@@ -15,6 +15,7 @@
     "core-elements": "Polymer/core-elements#~0.5.5",
     "page.js": "~1.6.3",
     "more-routing": "Polymore/more-routing#~0.5.0",
-    "core-icons": "Polymer/core-icons#~0.5.5"
+    "core-icons": "Polymer/core-icons#~0.5.5",
+    "Faker": "~2.1.2"
   }
 }
