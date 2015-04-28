@@ -26,8 +26,12 @@
                         <a href="{{urlFor('home')}}"></a>
                       </core-item>
 
-                      <core-item route="portfolio" label="Portfolio">
-                        <a href="{{urlFor('portfolio')}}"></a>
+                      <core-item route="user" label="Users">
+                        <a href="{{urlFor('user')}}"></a>
+                      </core-item>
+                        
+                      <core-item route="report" label="Report">
+                        <a href="{{urlFor('report')}}"></a>
                       </core-item>
 
                       <core-item route="contact" label="Contact">
@@ -52,17 +56,7 @@
 
                             <!-- HOME PAGE -->
                             <section route="home" id="home">
-                                <div fit class="core-list">
-                                  <core-list data="{{data}}" flex>
-                                    <template>
-                                      <div class="row" layout horizontal center>
-                                        <core-image class="avatar" src="{{model.avatar}}" preload sizing="cover" data-index="{{index}}"></core-image>
-                                        <div data-index="{{index}}">{{model.name}}</div>
-                                      </div>
-                                    </template>
-                                  </core-list>
-                                </div>
-
+                                <h1>Home</h1>
                                 <ul class="credits">
                                   <li>
                                     <core-icon icon="link"></core-icon>
@@ -77,30 +71,81 @@
                               </div>
                             </section>
 
-                            <!-- PORTFOLIO PAGE -->
-                            <section route="portfolio">
-                              <h1>Portfolio</h1>
-                              <div>
-                                <p>Portfolio Content</p>
-                                <p> 
-                                  <img id="photo-renato" src="http://blog.mdnsolutions.com/wp-content/uploads/2014/09/me_professional_small.jpg">
-                                  <a href="{{urlFor('user-info', {name: 'Renato'})}}">Renato's</a>
-                                </p>
-                                <hr />
-                                <p> <a href="{{urlFor('user-info', {name: 'John Doe'})}}">John Doe's</a></p>
-                              </div>
+                            <!-- USER PAGE -->
+                            <section route="user">
+                              <h1>Users</h1>
+                                <div fit class="core-list">
+                                  <core-list data="{{data}}" flex>
+                                    <template>
+                                      <div class="row" layout horizontal center>
+                                        <core-image class="avatar" src="{{model.avatar}}" preload sizing="cover" data-index="{{index}}"></core-image>
+                                        <div data-index="{{index}}">{{model.name}}</div>
+                                      </div>
+                                    </template>
+                                  </core-list>
+                                    
+<!--                                    <p> 
+                                      <img id="photo-renato" src="http://blog.mdnsolutions.com/wp-content/uploads/2014/09/me_professional_small.jpg">
+                                      <a href="{{urlFor('user-info', {name: 'Renato'})}}">Renato's</a>
+                                    </p>
+                                    <hr />
+                                    <p> <a href="{{urlFor('user-info', {name: 'John Doe'})}}">John Doe's</a></p>-->
+                                </div>
                             </section>
 
-                            <!-- Sub-PORTFOLIO PAGE -->
+                            <!-- USER-USER PAGE -->
                             <section route="user-info">
-                              <h1>My Portfolio</h1>
+                              <h1>User's Details</h1>
                               <div>
-                                <p>This is {{params.name}}'s portfolio.</p>
+                                <p>This is {{params.name}}'s user.</p>
                                 <p>
                                   <core-item label="Back">
-                                    <a href="{{urlFor('portfolio')}}"></a>
+                                    <a href="{{urlFor('user')}}"></a>
                                   </core-item>
-                                </p>
+                                </p>                                
+                              </div>
+                            </section>
+                            
+                            <!-- REPORT PAGE -->
+                            <section route="report">
+                              <h1>Report</h1>
+                              <div>
+<p>Here's a bubble chart:</p>
+<google-chart
+  type='bubble'
+  options='{}'
+  data='[ ["ID", "Life Expectancy", "Fertility Rate", "Region", "Population"],
+         ["CAN", 80.66, 1.67, "North America", 33739900],
+         ["DEU", 79.84, 1.36, "Europe",        81902307],
+         ["DNK", 78.6,  1.84, "Europe",        5523095],
+         ["EGY", 72.73, 2.78, "Middle East",   79716203],
+         ["GBR", 80.05, 2,    "Europe",        61801570],
+         ["IRN", 72.49, 1.7,  "Middle East",   73137148],
+         ["IRQ", 68.09, 4.77, "Middle East",   31090763],
+         ["ISR", 81.55, 2.96, "Middle East",   7485600],
+         ["RUS", 68.6,  1.54, "Europe",        141850000],
+         ["USA", 78.09, 2.05, "North America", 307007000] ]'>
+</google-chart>
+
+<p>Here's a geo chart:</p>
+<google-chart
+type='geo'
+data='[ ["Country", "Popularity"],
+       ["Germany", 200],
+       ["United States", 300],
+       ["Brazil", 400],
+       ["Canada", 500],
+       ["France", 600],
+       ["RU", 700] ]'>
+</google-chart>
+
+<p>Here's a pie chart:</p>
+<google-chart
+type='pie'
+options='{"title": "Distribution of days in 2001H1"}'
+cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+rows='[ ["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30] ]'>
+</google-chart>
                               </div>
                             </section>
 
