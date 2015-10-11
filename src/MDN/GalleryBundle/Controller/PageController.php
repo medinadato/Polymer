@@ -124,14 +124,6 @@ class PageController extends FOSRestController
             throw new NotFoundHttpException(sprintf('No resources found.'));
         }
 
-$callback = $this->getRequest()->get('callback'); // Check to see if callback parameter is in URL
-$response = new JsonResponse(); // Construct a new JSON response
-if (isset($callback))
-  $response->setCallback($callback);  // Set callback function to variable passed in callback
-$response->setData($pages);
-
-return $response;
-
         return $pages;
     }    
 }

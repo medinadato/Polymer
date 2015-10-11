@@ -46,8 +46,7 @@
                 dataType: 'jsonp',
                 beforeSend: setHeader,
                 timeout: 5000,
-                async: false,
-                jsonpCallback: 'jsonpCallback',
+                // jsonpCallback: 'jsonpCallback',
                 success: function( response ) {
                     var items = [];
                     $.each( response, function( key, obj ) {
@@ -62,10 +61,6 @@
                 error: function (xhr, errorType, exception) {
                     var errorMessage = exception || xhr.statusText;
                     console.log(errorMessage);
-                },
-                jsonpCallback: function( response ) {
-                    console.log(response);
-                    console.log('av');
                 }
             });
         </script>
