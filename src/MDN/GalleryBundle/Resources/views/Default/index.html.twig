@@ -35,7 +35,7 @@
             $.getJSON( "http://app.mdnsolutions.com/app_dev.php/api/v1/pages.json", function( data ) {
               var items = [];
               $.each( data, function( key, obj ) {
-                items.push( "<li id='" + obj.id + "'><img src='" + obj.url + "' alt='" + obj.title + "' /></li>" );
+                items.push( "<li id='" + obj.id + "'><img src='http://app.mdnsolutions.com/" + obj.url + "' alt='" + obj.title + "' /></li>" );
               });
              
               $( "<ul/>", {
