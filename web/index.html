@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>MDN Solutions - Melbourne based Magento E-commerce Consulting and Development</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Photo Gallery">
+        <meta name="author" content="Renato Medina">
+        <meta name="keywords" content="photo, gallery" >
+        <meta name="rating" content="general" />
+        <meta name="robots" content="ALL" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="assets/css/normalize.css" />
+    </head>
+    <body>
+        <div id="header">
+            <h1>Photo Gallery</h1>
+        </div>
+        <div id="content">
+        </div>
+        <div id="footer">
+            <p>MDN Solutions &copy; 2015</p>
+        </div>
+
+        <style>
+            #header, #content, #footer { display: block; width: 100%; float: left; clear: both; }
+            #header { background-color: #ddddff; padding: 5px 0; }
+            #footer { background-color: #a8eec2; }
+            ul.photolist { list-style: none; padding: 0; margin: 15px 0; display: table; }
+            ul.photolist li { float: left; padding: 2px; margin: 2px; }
+            ul.photolist li img { width: 200px; height: 120px; }
+        </style>
+
+        <script>
+            $.getJSON( "http://local.app.mdnsolutions.com/data.json", function( data ) {
+              var items = [];
+              $.each( data, function( key, val ) {
+                items.push( "<li id='" + key + "'><img src='" + val + "' alt='image' /></li>" );
+              });
+             
+              $( "<ul/>", {
+                "class": "photolist",
+                html: items.join( "" )
+              }).appendTo( "body #content" );
+            });     
+        </script>
+
+    </body>
+</html>
