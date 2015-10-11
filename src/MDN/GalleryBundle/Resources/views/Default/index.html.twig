@@ -32,7 +32,7 @@
         </style>
 
         <script>
-            var url = "http://local.app.mdnsolutions.com/api/v1/pages.json";
+            var url = "http://app.mdnsolutions.com/api/v1/pages.json";
             var token = '';
 
             function setHeader(xhr) {
@@ -43,9 +43,11 @@
                 url: url,
                 type: 'GET',
                 crossDomain: true,
-                dataType: 'json',
+                dataType: 'jsonp',
                 beforeSend: setHeader,
                 timeout: 5000,
+                async: false,
+                jsonpCallback: 'jsonpCallback',
                 success: function( response ) {
                     var items = [];
                     $.each( response, function( key, obj ) {
@@ -57,14 +59,14 @@
                         html: items.join( "" )
                     }).appendTo( "body #content" );
                 },
-                error: function(x, t, m) {
-                    if(t==="timeout") {
-                        // something went wrong (handle it)
-                        console.log('timeout') 
-                    }
-                    console.log(x);
-                    console.log(m);
-                }    
+                error: function (xhr, errorType, exception) {
+                    var errorMessage = exception || xhr.statusText;
+                    console.log(errorMessage);
+                },
+                jsonpCallback: function( response ) {
+                    console.log(response);
+                    console.log('av');
+                }
             });
         </script>
 
