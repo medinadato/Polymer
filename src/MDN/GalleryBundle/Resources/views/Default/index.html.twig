@@ -32,7 +32,7 @@
         </style>
 
         <script>
-            $.getJSON( "http://app.mdnsolutions.com/app_dev.php/api/v1/pages.json", function( data ) {
+            $.getJSON( "http://app.mdnsolutions.com/api/v1/pages.json", function( data ) {
               var items = [];
               $.each( data, function( key, obj ) {
                 items.push( "<li id='" + obj.id + "'><img src='http://app.mdnsolutions.com/" + obj.url + "' alt='" + obj.title + "' /></li>" );
