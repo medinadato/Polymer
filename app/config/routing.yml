@@ -1,3 +1,12 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+mdn_gallery_api:
+    type: rest
+    prefix: /api
+    resource: "@MDNGalleryBundle/Resources/config/routes.yml"
+
+mdn_gallery_show:
+    resource: "@MDNGalleryBundle/Controller/"
+    type:     annotation

@@ -1,0 +1,5 @@
+mdn_gallery_Page:
+    type: rest
+    prefix: /v1
+    resource: MDN\GalleryBundle\Controller\PageController
+    name_prefix:  api_1_ # naming collision
