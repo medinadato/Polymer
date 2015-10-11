@@ -32,17 +32,41 @@
         </style>
 
         <script>
-            $.getJSON( "http://app.mdnsolutions.com/api/v1/pages.json", function( data ) {
-              var items = [];
-              $.each( data, function( key, obj ) {
-                items.push( "<li id='" + obj.id + "'><img src='http://app.mdnsolutions.com/" + obj.url + "' alt='" + obj.title + "' /></li>" );
-              });
-             
-              $( "<ul/>", {
-                "class": "photolist",
-                html: items.join( "" )
-              }).appendTo( "body #content" );
-            });     
+            var url = "http://local.app.mdnsolutions.com/api/v1/pages.json";
+            var token = '';
+
+            function setHeader(xhr) {
+              xhr.setRequestHeader('Authorization', token);
+            }
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                crossDomain: true,
+                dataType: 'json',
+                beforeSend: setHeader,
+                timeout: 5000,
+                success: function( response ) {
+                    console.log(response)
+                    var items = [];
+                    $.each( response, function( key, obj ) {
+                        items.push( "<li id='" + obj.id + "'><img src='http://app.mdnsolutions.com/" + obj.url + "' alt='" + obj.title + "' /></li>" );
+                    });
+
+                    $( "<ul/>", {
+                        "class": "photolist",
+                        html: items.join( "" )
+                    }).appendTo( "body #content" );
+                },
+                error: function(x, t, m) {
+                    if(t==="timeout") {
+                        // something went wrong (handle it)
+                        console.log('timeout') 
+                    }
+                    console.log(x);
+                    console.log(m);
+                }    
+            });
         </script>
 
     </body>
