@@ -46,7 +46,7 @@
                 dataType: 'jsonp',
                 beforeSend: setHeader,
                 timeout: 5000,
-                // jsonpCallback: 'jsonpCallback',
+                jsonpCallback: 'mycallback',
                 success: function( response ) {
                     var items = [];
                     $.each( response, function( key, obj ) {
