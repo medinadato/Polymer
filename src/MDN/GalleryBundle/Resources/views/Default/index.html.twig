@@ -47,7 +47,6 @@
                 beforeSend: setHeader,
                 timeout: 5000,
                 success: function( response ) {
-                    console.log(response)
                     var items = [];
                     $.each( response, function( key, obj ) {
                         items.push( "<li id='" + obj.id + "'><img src='http://app.mdnsolutions.com/" + obj.url + "' alt='" + obj.title + "' /></li>" );
