@@ -96,5 +96,5 @@ fos_rest:
             html: true
         jsonp_handler: ~
     access_denied_listener:
-        json: false
+        json: true
     allowed_methods_listener: true

@@ -37,7 +37,10 @@ class PageHandler implements PageHandlerInterface
      */
     public function getAll()
     {
-        return $this->repository->findAll();
+        return $this->repository->createQueryBuilder('e')
+               ->select('e')
+               ->getQuery()
+               ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
     }
 
     private function createPage()

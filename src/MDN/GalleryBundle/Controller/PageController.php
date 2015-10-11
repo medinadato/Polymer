@@ -15,6 +15,8 @@ use MDN\GalleryBundle\Exception\InvalidFormException;
 use MDN\GalleryBundle\Form\PageType;
 use MDN\GalleryBundle\Model\PageInterface;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 class PageController extends FOSRestController
 {
@@ -108,7 +110,16 @@ class PageController extends FOSRestController
     {
         $pages = $this->getAll();
 
-        return $pages;
+        // Check to see if callback parameter is in URL
+        $callback = $this->getRequest()->get('callback');
+         
+        // Construct a new JSON response
+        $response = new JsonResponse(); 
+        if (isset($callback))
+          $response->setCallback($callback);  // Set callback function to variable passed in callback
+        $response->setData($pages);
+
+        return $response;
     }
 
     /**
