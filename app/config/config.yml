@@ -93,8 +93,8 @@ fos_rest:
             json : true
         default_engine: none
         templating_formats:
-            json: false
+            html: true
         jsonp_handler: ~
     access_denied_listener:
-        json: true
+        json: false
     allowed_methods_listener: true
